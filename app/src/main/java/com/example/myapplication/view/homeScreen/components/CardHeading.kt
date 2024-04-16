@@ -14,11 +14,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.R
 
 @Preview(showBackground = true)
 @Composable
@@ -28,7 +30,9 @@ fun CardHeading(){
         .fillMaxWidth()
         .background(Color.Transparent),
         shape = RoundedCornerShape(10.dp),
-        colors = CardDefaults.cardColors()){
+        colors = CardDefaults.cardColors(colorResource(id = R.color.secondary)),
+        elevation = CardDefaults.cardElevation(10.dp)
+    ) {
         Box(modifier = Modifier
             .fillMaxSize()
             .padding(10.dp)){
@@ -36,11 +40,17 @@ fun CardHeading(){
 
                 // Heading
                 Text("Campus Placement Prediction", fontSize = 27.sp,
-                    color = Color.Black, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center)
+                    color = colorResource(id = R.color.primary),
+                    fontWeight = FontWeight.SemiBold,
+                    textAlign = TextAlign.Center
+                )
 
                 // Sub description
                 Text("A machine learning model that can predict campus placement with 98% accuracy", fontSize = 18.sp,
-                    color = Color.Black, fontWeight = FontWeight.Medium, textAlign = TextAlign.Center)
+                    color = colorResource(id = R.color.primary),
+                    fontWeight = FontWeight.Medium,
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
